@@ -1,6 +1,6 @@
 # BulkLMMSysimage
 
-`BulkLMMSysimage` contains the instructions to generate the `BulkLMM.jl sysimage` and the code of the commands-line functions. 
+`BulkLMMSysimage` contains the instructions to generate the `BulkLMM.jl` sysimage along the code of the commands-line functions. 
 
 ## Background  
 
@@ -16,11 +16,6 @@ We can consider a `sysimage` file as a Julia session serialized to a file. When 
 
 ## Synopsis
 
-Let use an example to demonstrate how to create and use a `sysimage`.
-
-The module `MyLineraRegression.jl` contains only one function `my_linear_regression` that takes 3 arguments: location of a dataset in CSV format, the name of a predictor, and the name of the response. It reads the dataset as a dataframe and apply a linear regression from the `GLM` package.
-
-
 ### Building `sysimage`
 
 To generate the `sysimage` start Julia in this directory. To make the number of threads available to Julia you can start julia specifying the number of threads such as:
@@ -29,7 +24,7 @@ To generate the `sysimage` start Julia in this directory. To make the number of 
 $ julia --threads 4
 ```
 
-Then, run the following command:
+Then, run the following command in Julia to build the `BulkLMM_API.so` sysimage:
 
 ```
 julia> include("run_compilation.jl")
@@ -49,6 +44,10 @@ julia --project --sysimage=BulkLMM_API.so scan.jl data/bxdData/spleen-pheno-nomi
 
 ### BulkLMM_API: data
 
+
+Let use an example to demonstrate how to create and use a `sysimage`.
+
+The module `MyLineraRegression.jl` contains only one function `my_linear_regression` that takes 3 arguments: location of a dataset in CSV format, the name of a predictor, and the name of the response. It reads the dataset as a dataframe and apply a linear regression from the `GLM` package.
 
 
 
