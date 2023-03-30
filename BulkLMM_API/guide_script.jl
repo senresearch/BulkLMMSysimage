@@ -8,6 +8,9 @@ pheno_file = joinpath(bulklmmdir,"..","data/bxdData/spleen-pheno-nomissing.csv")
 pheno = readdlm(pheno_file, ',', header = false);
 pheno_processed = pheno[2:end, 2:(end-1)].*1.0; # exclude the header, the first (transcript ID)and the last columns (sex)
 
+geno_file = joinpath(bulklmmdir,"..","data/bxdData/spleen-bxd-genoprob.csv");
+geno = BulkLMM.DelimitedFiles.readdlm(geno_file, ',', header = false);
+geno_processed = geno[2:end, 1:2:end] .* 1.0;
 
 # Compute the kinship matrix from the genotype probabilities using the function calcKinship
 kinship = calcKinship(geno_processed); # calculate K
