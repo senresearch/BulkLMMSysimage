@@ -1,0 +1,1 @@
+bin contains the sysimage and the funcion-files necessary to run bBulkLMM command-lines.
