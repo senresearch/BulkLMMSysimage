@@ -18,10 +18,15 @@ We can consider a `sysimage` file as a Julia session serialized to a file. When 
 
 ### Building `sysimage`
 
-To generate the `sysimage` start Julia in this directory. To make the number of threads available to Julia you can start julia specifying the number of threads such as:
+To generate the `sysimage` start Julia in this directory. 
+```
+BulkLMMSysimage$ julia --threads 4
+```
+
+To make the number of threads available to Julia you can start julia specifying the number of threads such as:
 
 ```
-$ julia --threads 4
+BulkLMMSysimage$ julia --threads 4
 ```
 
 Then, run the following command in Julia to build the `BulkLMM_API.so` sysimage:
@@ -32,25 +37,24 @@ julia> include("run_compilation.jl")
 
 ### Using `sysimage`
 
-Once the `sysimage` is created, we can use our pre-compiled Julia version by using simply the following command line:
+Once the `sysimage` is created, we can use our pre-compiled Julia version by using simply the following command line, assuming that we are in the `BulkLMM_API` directory:   
 
-- Using sysimage command:
+
+> julia --project --sysimage=<sysimage_path> <scan_function_path > <phenotype_file_path> <genotype_file_path> <kinship_file_path> <output_lod_file_path> <number_of_permutation>
+
+#### Example
+- Without permutations:
 ```
-julia --project --sysimage=BulkLMM_API.so scan.jl data/bxdData/spleen-pheno-nomissing.csv 1112 data/bxdData/spleen-bxd-genoprob.csv
+julia --project --sysimage=bin/BulkLMM_API.so bin/single_trait_scan.jl data/preprocessed/single_trait.csv data/preprocessed/geno.csv data/preprocessed/kinship.csv data/output/lod_1.csv
 ```
 
-### BulkLMM_API: data
-
-
-### BulkLMM_API: data
-
-
-Let use an example to demonstrate how to create and use a `sysimage`.
-
-The module `MyLineraRegression.jl` contains only one function `my_linear_regression` that takes 3 arguments: location of a dataset in CSV format, the name of a predictor, and the name of the response. It reads the dataset as a dataframe and apply a linear regression from the `GLM` package.
+- With permutations:   
+```
+julia --project --sysimage=bin/BulkLMM_API.so bin/single_trait_scan.jl data/preprocessed/single_trait.csv data/preprocessed/geno.csv data/preprocessed/kinship.csv data/output/lod_1.csv 1000 
+```
 
 
 
 
-**NOTES:** Since our example uses a local module (i.e. MyLinearRegression), it is necessary to run those command lines from the MyLinearRegression directory. Otherwise, Julia will not recognize MyLinearRegression package/module. In the case we use a package that belongs to the registry or is included in the Project.toml,   we just have to specify the path of the sysimage and/or the script; the `--project` flag should be removed. 
+**NOTES:** In the case we use a package that belongs to the registry or is included in the Project.toml, we just have to specify the path of the sysimage and/or the script; the `--project` flag should be removed. 
 

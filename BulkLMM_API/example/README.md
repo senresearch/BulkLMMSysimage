@@ -1,0 +1,1 @@
+The directory `example` contains the script to generate the input for our example.
