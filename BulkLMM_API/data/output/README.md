@@ -1,0 +1,1 @@
+The output directory may contain the LOD scores CSV files resulting from scans.
