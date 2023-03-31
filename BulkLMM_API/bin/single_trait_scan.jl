@@ -69,6 +69,6 @@ end
 
 println(
         "reading time: ", reading_time, "\n",
-        "processing time: ", processing_time,
+        "processing time: ", processing_time, "\n",
         "writing time: ", writing_time
 )
