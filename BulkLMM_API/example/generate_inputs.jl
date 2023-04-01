@@ -1,5 +1,5 @@
 # Scripts to generate inputs for example
-using BulkLMM
+using BulkLMM, CSV, Tables
 
 bulklmmdir = dirname(pathof(BulkLMM));
 
