@@ -20,7 +20,7 @@ We can consider a `sysimage` file as a Julia session serialized to a file. When 
 
 To generate the `sysimage` start Julia in this directory. 
 ```
-BulkLMMSysimage$ julia --threads 4
+BulkLMMSysimage$ julia
 ```
 
 To make the number of threads available to Julia you can start julia specifying the number of threads such as:
