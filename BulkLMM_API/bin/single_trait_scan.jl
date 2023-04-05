@@ -3,7 +3,7 @@ using BulkLMM, CSV, Tables
 # ARGS[1] => path of pheno CSV file
 # ARGS[2] => path of geno CSV file
 # ARGS[3] => path of kinship CSV file
-# ARGS[3] => path of output LOD CSV file
+# ARGS[4] => path of output LOD CSV file
 
 
 ###########
