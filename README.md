@@ -1,6 +1,6 @@
 # BulkLMMSysimage
 
-`BulkLMMSysimage` contains the instructions to generate the `BulkLMM.jl` sysimage along the code of the commands-line functions. 
+`BulkLMMSysimage` includes instructions for generating the `BulkLMM.jl` sysimage along with the code for the command-line functions.
 
 ## Background  
 
